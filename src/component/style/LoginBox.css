@@ -1,0 +1,39 @@
+.loginBox{
+    min-width: 290px;
+    width: 320px;
+    min-height: 420px;
+    border-radius: 6px;
+    box-shadow:0 0 5px #9E9E9E;
+    position: relative;
+    background-color: white;
+}
+.title{
+    text-align: center;
+    line-height: 80px;
+    font-size: 21px;
+
+
+}
+.login-form{
+    margin-left:auto;
+    margin-right: auto
+}
+.login-form {
+    max-width: 87%
+}
+.login-form-forgot {
+    float: right;
+}
+.login-form-button {
+    margin-top: 10px;
+    width: 100%;
+}
+.ant-divider-horizontal{
+    margin-top:0;
+    margin-bottom: 35px;
+}
+.register-button{
+    margin-top: 20px;
+    background-color: white;
+    color: #1890FF;
+}
