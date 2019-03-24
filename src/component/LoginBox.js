@@ -1,10 +1,18 @@
 import React from 'react';
 import {
-	Form, Icon, Input, Button, Checkbox, Divider
+	Form, Icon, Input, Button, Checkbox, Divider,Modal
 } from 'antd';
 require('./style/LoginBox.css');
 
 class LoginBox extends React.Component{
+	state={
+		register_show: false
+	};
+
+	showRegister = () => {
+		this.setState({register_show:true})
+	};
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
@@ -12,7 +20,21 @@ class LoginBox extends React.Component{
 				console.log('Received values of form: ', values);
 			}
 		});
-	}
+	};
+
+	handleOk = (e) => {
+		console.log(e);
+		this.setState({
+			register_show: false,
+		});
+	};
+
+	handleCancel = (e) => {
+		console.log(e);
+		this.setState({
+			register_show: false,
+		});
+	};
 
 	render() {
 		const { getFieldDecorator } = this.props.form;
@@ -46,11 +68,25 @@ class LoginBox extends React.Component{
 						<Button type="primary" htmlType="submit" className="login-form-button">
 							登录
 						</Button>
-						<Button type="primary" htmlType="submit" className="login-form-button register-button">
+						<Button
+							type="primary"
+							className="login-form-button register-button"
+							onClick={this.showRegister}
+						>
 							注册
 						</Button>
 					</Form.Item>
 				</Form>
+				{/*注册模块*/}
+				<Modal
+					title="Basic Modal"
+					visible={this.state.register_show}
+					onOk={this.handleOk}
+					onCancel={this.handleCancel}
+					onClick={this.showRegister}
+				>
+
+				</Modal>
 			</div>
 		);
 	}

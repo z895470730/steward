@@ -7,12 +7,28 @@ const LoginPageUI = () =>{
 	return(
 		<div className='login-page'>
 			<Header className='header'>
-				<div className='left'>
-					<p className='logo'>天天管家</p>
-				</div>
-				<div className='right'>
-					menu
-				</div>
+				<Row>
+					<Col className='left' xs={24} sm={24} md={14} lg={18} xl={17}>
+						<img alt='logo' src ={ require('../image/logo.png')} className='logo'/>
+						<p className='steward'>天天管家</p>
+					</Col>
+					<Col className='right' xs={0} sm={0} md={10} lg={6} xl={7}>
+						<ul className='nav-list'>
+							<li className='nav-item'><div className='item-content'>首页</div></li>
+							<li className='nav-item'><div className='item-content'>问题反馈</div></li>
+							<li className='nav-item'><div className='item-content'>联系我们</div></li>
+						</ul>
+					</Col>
+				</Row>
+				{/*<div className='left'>*/}
+					{/*<img alt='logo' src ={ require('../image/logo.png')} className='logo'/>*/}
+					{/*<p className='steward'>天天管家</p>*/}
+				{/*</div>*/}
+				{/*<div className='right'>*/}
+					{/*<div className='nav'>1</div>*/}
+					{/*<div className='nav'>1</div>*/}
+					{/*<div className='nav'>1</div>*/}
+				{/*</div>*/}
 			</Header>
 			<Content className='content'>
 				<Row className='content-row'>
