@@ -1,0 +1,44 @@
+#components-layout-demo-top-side-2 .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255,255,255,.2);
+    margin: 16px 28px 16px 0;
+    float: left;
+}
+.home-header{
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+}
+.home-left{
+    display: flex;
+    align-items: center;
+}
+.home-logo{
+    width: 40px;
+    height: 40px;
+}
+.home-steward{
+    color: #1296DB;
+    font-size: 24px;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+.home-steward:hover{
+    cursor:pointer;
+}
+.home-right{
+    display: flex;
+}
+.home-nav-list{
+    display: flex;
+    list-style: none;
+}
+.home-content{
+    margin-top: 30px;
+}
+.ant-layout-sider-trigger{
+    position: relative;
+}
+.ant-layout-sider-trigger:hover{    
+    box-shadow: 0 0 5px #1890FF;
+}

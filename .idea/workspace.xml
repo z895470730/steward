@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56cd0ad1-4d34-4a5c-9dd1-75be9363d0fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/LoginBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LoginBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/LoginPageUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/LoginPageUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/style/LoginPageUI.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/style/LoginPageUI.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/background.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/loginPageBackground.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/registerUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/RegisterUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/style/registerUI.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/style/RegisterUI.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,10 +22,19 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/component/LoginPageUI.js">
+            <entry file="file://$PROJECT_DIR$/src/component/style/LoginPageUI.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+                <state relative-caret-position="238">
+                  <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/component/HomePage.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="110">
+                  <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -37,13 +42,13 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/component/LoginBox.js">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+                <state relative-caret-position="152">
+                  <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="19" />
                   <folding>
-                    <element signature="e#0#26#0" expanded="true" />
+                    <element signature="e#0#41#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -52,26 +57,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/component/style/LoginPageUI.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="86">
-                  <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/component/style/registerUI.css">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
+        <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/component/style/LoginBox.css">
+            <entry file="file://$PROJECT_DIR$/src/component/style/HomePage.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="383">
-                  <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+                <state relative-caret-position="561">
+                  <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -83,8 +74,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -110,14 +101,17 @@
         <option value="$PROJECT_DIR$/src/component/LoginBoxUI.js" />
         <option value="$PROJECT_DIR$/src/component/style/LoginBoxUI.css" />
         <option value="$PROJECT_DIR$/src/index.css" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/component/style/LoginBox.css" />
-        <option value="$PROJECT_DIR$/src/component/LoginPageUI.js" />
         <option value="$PROJECT_DIR$/src/component/registerUI.js" />
         <option value="$PROJECT_DIR$/src/component/style/registerUI.css.ts" />
         <option value="$PROJECT_DIR$/src/component/style/registerUI.css" />
         <option value="$PROJECT_DIR$/src/component/style/LoginPageUI.css" />
         <option value="$PROJECT_DIR$/src/component/LoginBox.js" />
+        <option value="$PROJECT_DIR$/src/component/LoginPageUI.js" />
+        <option value="$PROJECT_DIR$/src/component/style/HomePage.css.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/component/HomePage.js" />
+        <option value="$PROJECT_DIR$/src/component/style/HomePage.css" />
       </list>
     </option>
   </component>
@@ -137,26 +131,32 @@
         <subPane>
           <expand>
             <path>
-              <item name="stward" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stward" type="462c0819:PsiDirectoryNode" />
+              <item name="steward" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steward" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stward" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stward" type="462c0819:PsiDirectoryNode" />
+              <item name="steward" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steward" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stward" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stward" type="462c0819:PsiDirectoryNode" />
+              <item name="steward" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steward" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="component" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="stward" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stward" type="462c0819:PsiDirectoryNode" />
+              <item name="steward" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steward" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="component" type="462c0819:PsiDirectoryNode" />
               <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="steward" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steward" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -169,14 +169,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="D:\workspace\stward\node_modules\eslint" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="D:\workspace\steward\node_modules\eslint" />
+    <property name="node.js.selected.package.standard" value="D:\workspace\steward\node_modules\eslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="ts.external.directory.path" value="D:\WebStorm 183.4588.47\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\steward\src\image" />
       <recent name="D:\workspace\stward\src\image" />
       <recent name="D:\workspace\stward\public" />
     </key>
@@ -206,18 +210,19 @@
       <workItem from="1553169622978" duration="9408000" />
       <workItem from="1553263486407" duration="4697000" />
       <workItem from="1553309120573" duration="18959000" />
-      <workItem from="1553403177961" duration="625000" />
+      <workItem from="1553403177961" duration="896000" />
+      <workItem from="1553404188225" duration="9384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33689000" />
+    <option name="totallyTimeSpent" value="43344000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15719947" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09775429" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -302,26 +307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -330,13 +315,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/style/registerUI.css.ts" />
-    <entry file="file://$PROJECT_DIR$/src/component/registerUI.js">
+    <entry file="file://$PROJECT_DIR$/src/component/style/LoginBox.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/style/RegisterUI.css">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/RegisterUI.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/style/HomePage.css.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/LoginBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/LoginPageUI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+        <state relative-caret-position="494">
+          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -345,28 +370,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/style/LoginPageUI.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="238">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/style/registerUI.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/style/LoginBox.css">
+    <entry file="file://$PROJECT_DIR$/src/component/HomePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/LoginBox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        <state relative-caret-position="110">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/style/HomePage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
         </state>
       </provider>
     </entry>

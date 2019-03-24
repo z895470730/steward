@@ -20,15 +20,6 @@ const LoginPageUI = () =>{
 						</ul>
 					</Col>
 				</Row>
-				{/*<div className='left'>*/}
-					{/*<img alt='logo' src ={ require('../image/logo.png')} className='logo'/>*/}
-					{/*<p className='steward'>天天管家</p>*/}
-				{/*</div>*/}
-				{/*<div className='right'>*/}
-					{/*<div className='nav'>1</div>*/}
-					{/*<div className='nav'>1</div>*/}
-					{/*<div className='nav'>1</div>*/}
-				{/*</div>*/}
 			</Header>
 			<Content className='content'>
 				<Row className='content-row'>
