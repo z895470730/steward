@@ -69,7 +69,6 @@ class LoginBox extends React.Component{
 							登录
 						</Button>
 						<Button
-							type="primary"
 							className="login-form-button register-button"
 							onClick={this.showRegister}
 						>

@@ -1,0 +1,38 @@
+.header{
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    background-image: url("http://211.67.81.7/images/login-background.svg");
+}
+.left{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.logo{
+    width: 40px;
+    height: 40px;
+}
+.steward{
+    color: #1296DB;
+    font-size: 2em;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+.steward:hover{
+    cursor:pointer;
+}
+.right{
+    display: flex;
+    justify-content: flex-end;
+}
+.user-box{
+    display: flex;
+    align-items: center;
+}
+.user-box:hover{
+    cursor: pointer ;
+}
+.user-box p{
+    margin-bottom: 0;
+    color: #9E9E9E;
+}

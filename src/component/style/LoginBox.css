@@ -37,3 +37,9 @@
     background-color: white;
     color: #1890FF;
 }
+.register-button:hover{
+    background-color: white;
+    box-shadow: 0 0 5px #1890FF;
+    color: #1890FF;
+    text-shadow: 0 0 2px #1890FF;
+}
