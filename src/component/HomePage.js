@@ -9,29 +9,24 @@ import ColumnTarget from './ColumnTarget';
 import ColumnTool from './ColumnTool';
 import ColumnUser from './ColumnUser';
 import { Layout, Divider} from 'antd';
+import store from '../store/index';
 require('./style/HomePage.css');
 const { Content, Footer } = Layout;
 class HomePage extends React.Component{
-	state={
-		page_key:'1'
-	};
-
-	onChangeColumn = (key) =>{
-		this.setState({page_key: key})
+	constructor(props){
+		super(props);
+		this.state = store.getState();
+		store.subscribe(()=>{this.setState(store.getState())})
 	}
-
 	render() {
 		return (
 			<Layout className='homePage'>
 				<HomePageHeader/>
 				<Layout>
-					<LeftMenu
-						onChangeColumn={this.onChangeColumn}
-					/>
+					<LeftMenu/>
 					<Content style={{ margin: '20px 20px' }} className='content'>
 						{
-							(() => {
-								console.log(this.state.page_key)
+							(()=>{
 								switch (this.state.page_key) {
 									case '1':
 										return <ColumnIndex/>;

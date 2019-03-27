@@ -1,29 +1,31 @@
 import React from 'react';
 import {Icon, Menu, Layout} from "antd";
-require('./style/LeftMenu.css')
+import store from '../store/index'
+require('./style/LeftMenu.css');
 const { Sider } = Layout;
 class LeftMenu extends React.Component{
-	state = {
-		collapsed: false,
-	};
-
-	onCollapse = (collapsed) => {
-		console.log(collapsed);
-		this.setState({ collapsed });
+	constructor(props){
+		super(props);
+		this.handleColumnChange = this.handleColumnChange.bind(this);
+	}
+	handleColumnChange = (key) =>{
+		const action = {
+			type:'change_column_page',
+			value:key
+		};
+		store.dispatch(action);
 	};
 	render() {
 		return (
 			<Sider
 				theme='light'
 				collapsible
-				collapsed={this.state.collapsed}
-				onCollapse={this.onCollapse}
 				className='menu'
 			>
 				<Menu theme="light"
 							defaultSelectedKeys={['1']}
 							mode="inline"
-							onClick={(item)=>{this.props.onChangeColumn(item.key)}}
+							onClick={(item)=>{this.handleColumnChange(item.key)}}
 				>
 					<Menu.Item key="1">
 						<Icon type="bars" />

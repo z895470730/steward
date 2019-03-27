@@ -15,28 +15,17 @@ const columns = [{
 	dataIndex: 'address',
 	key: 'address',
 }, {
-	title: 'Tags',
+	title: '支付方式',
 	key: 'tags',
 	dataIndex: 'tags',
-	render: tags => (
-		<span>
-      {tags.map(tag => {
-				let color = tag.length > 5 ? 'geekblue' : 'green';
-				if (tag === 'loser') {
-					color = 'volcano';
-				}
-				return <Tag color={color} key={tag}>{tag.toUpperCase()}</Tag>;
-			})}
-    </span>
-	),
 }, {
 	title: '操作',
 	key: 'action',
 	render: (text, record) => (
 		<span>
-      <a href="javascript:;">Invite {record.name}</a>
+      <a>修改</a>
       <Divider type="vertical" />
-      <a href="javascript:;">Delete</a>
+      <a>删除</a>
     </span>
 	),
 }];
@@ -46,13 +35,13 @@ const data = [{
 	name: 'John Brown',
 	age: 32,
 	address: 'New York No. 1 Lake Park',
-	tags: ['nice', 'developer'],
+	tags: 'nice',
 }, {
 	key: '2',
 	name: 'Jim Green',
 	age: 42,
 	address: 'London No. 1 Lake Park',
-	tags: ['loser'],
+	tags: 'loser',
 }];
 class ColumnIndex extends React.Component{
 	render() {
