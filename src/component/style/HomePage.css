@@ -5,12 +5,16 @@
     margin: 16px 28px 16px 0;
     float: left;
 }
-.home-content{
-    margin-top: 30px;
+.homePage{
+    height: 100%;
 }
 .ant-layout-sider-trigger{
     position: relative;
 }
 .ant-layout-sider-trigger:hover{
     box-shadow: 0 0 5px #1890FF;
+}
+.content{
+    height: 100%;
+    overflow: scroll;
 }

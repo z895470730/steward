@@ -20,7 +20,11 @@ class LeftMenu extends React.Component{
 				onCollapse={this.onCollapse}
 				className='menu'
 			>
-				<Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
+				<Menu theme="light"
+							defaultSelectedKeys={['1']}
+							mode="inline"
+							onClick={(item)=>{this.props.onChangeColumn(item.key)}}
+				>
 					<Menu.Item key="1">
 						<Icon type="bars" />
 						<span>我的首页</span>
@@ -37,7 +41,7 @@ class LeftMenu extends React.Component{
 						<Icon type="wallet" />
 						<span>我的卡包</span>
 					</Menu.Item>
-					<Menu.Item key="5 ">
+					<Menu.Item key="5">
 						<Icon type="heart" />
 						<span>小目标</span>
 					</Menu.Item>

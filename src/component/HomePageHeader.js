@@ -9,6 +9,10 @@ const content = (
 			<span>个人中心</span>
 		</Menu.Item>
 		<Menu.Item>
+			<Icon type="swap" />
+			<span>切换账号</span>
+		</Menu.Item>
+		<Menu.Item>
 			<Icon type="poweroff" />
 			<span>退出登录</span>
 		</Menu.Item>
