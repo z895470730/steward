@@ -1,6 +1,8 @@
 import React from 'react';
 import {Icon, Menu, Layout} from "antd";
-import store from '../store/index'
+import store from '../store/index';
+import {getHandleColumnChange} from '../store/actionCreator';
+import { Promise, Parse } from '../connection';
 require('./style/LeftMenu.css');
 const { Sider } = Layout;
 class LeftMenu extends React.Component{
@@ -9,10 +11,7 @@ class LeftMenu extends React.Component{
 		this.handleColumnChange = this.handleColumnChange.bind(this);
 	}
 	handleColumnChange = (key) =>{
-		const action = {
-			type:'change_column_page',
-			value:key
-		};
+		const action = getHandleColumnChange(key);
 		store.dispatch(action);
 	};
 	render() {

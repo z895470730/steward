@@ -1,39 +1,27 @@
 import React from 'react';
+import store from '../store/index';
+import Register from './Register';
 import {
-	Form, Icon, Input, Button, Checkbox, Divider,Modal
+	Form, Icon, Input, Button, Checkbox, Divider
 } from 'antd';
+import {getHandleRegisterSubmit, getChangeRegisterShow} from '../store/actionCreator';
 require('./style/LoginBox.css');
 
 class LoginBox extends React.Component{
-	state={
-		register_show: false
+	constructor(props){
+		super(props);
+		this.state = store.getState();
+		store.subscribe(()=>{this.setState(store.getState())})
+	}
+
+	handleRegisterSubmit = (e) => {
+		const action = getHandleRegisterSubmit(e);
+		store.dispatch(action);
 	};
 
 	showRegister = () => {
-		this.setState({register_show:true})
-	};
-
-	handleSubmit = (e) => {
-		e.preventDefault();
-		this.props.form.validateFields((err, values) => {
-			if (!err) {
-				console.log('Received values of form: ', values);
-			}
-		});
-	};
-
-	handleOk = (e) => {
-		console.log(e);
-		this.setState({
-			register_show: false,
-		});
-	};
-
-	handleCancel = (e) => {
-		console.log(e);
-		this.setState({
-			register_show: false,
-		});
+		const action = getChangeRegisterShow();
+		store.dispatch(action);
 	};
 
 	render() {
@@ -42,19 +30,19 @@ class LoginBox extends React.Component{
 			<div className='loginBox'>
 				<div className='title'>欢迎使用天天管家</div>
 				<Divider/>
-				<Form onSubmit={this.handleSubmit} className="login-form">
+				<Form onSubmit={this.handleRegisterSubmit} className="login-form">
 					<Form.Item>
 						{getFieldDecorator('userName', {
 							rules: [{ required: true, message: '请输入您的账户名！' }],
 						})(
-							<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
+							<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入邮箱或用户名" />
 						)}
 					</Form.Item>
 					<Form.Item>
 						{getFieldDecorator('password', {
 							rules: [{ required: true, message: '请输入您的密码！' }],
 						})(
-							<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
+							<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="请输入密码" />
 						)}
 					</Form.Item>
 					<Form.Item>
@@ -77,15 +65,7 @@ class LoginBox extends React.Component{
 					</Form.Item>
 				</Form>
 				{/*注册模块*/}
-				<Modal
-					title="Basic Modal"
-					visible={this.state.register_show}
-					onOk={this.handleOk}
-					onCancel={this.handleCancel}
-					onClick={this.showRegister}
-				>
-
-				</Modal>
+				<Register/>
 			</div>
 		);
 	}

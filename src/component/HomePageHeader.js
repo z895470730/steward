@@ -21,17 +21,17 @@ const content = (
 class HomePageHeader extends React.Component{
 	render() {
 		return (
-			<Header className="header">
+			<Header className="home-page-header">
 					<Col xs={14} sm={12} md={12} lg={12} xl={12}>
-						<p className='steward'>天天管家</p>
+						<p className='home-page-steward'>天天管家</p>
 					</Col>
-					<Col className='right' xs={10} sm={12} md={12} lg={12} xl={12}>
+					<Col className='home-page-right' xs={10} sm={12} md={12} lg={12} xl={12}>
 						<Dropdown overlay={content}>
-							<div className='user-box'>
+							<div className='home-page-user-box'>
 							<Avatar
 								size={43}
 								src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-								className='avatar'
+								className='home-page-avatar'
 							/>
 							<p>请登录</p>
 							</div>

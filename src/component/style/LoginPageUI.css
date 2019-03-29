@@ -2,57 +2,51 @@
     height: 100%;
     background-image: url("../../image/background.jpg");
 }
-.header{
+.login-page-header{
     background-color: rgba(0,0,0,0.2);
 }
-.left{
+.login-page-left{
     display: flex;
     align-items: center;
 }
-.logo{
+.login-page-logo{
     width: 40px;
     height: 40px;
 }
-.steward{
+.login-page-steward{
     color: white;
     font-size: 24px;
     margin-bottom: 0;
     margin-left: 10px;
-    text-shadow: 0 0px 1px grey;
+    text-shadow: 0 0 1px grey;
 }
-.steward:hover{
+.login-page-steward:hover{
     cursor:pointer;
     color: #1890FF;
     text-shadow: 0 0 3px lightskyblue;
 }
-.right{
-    display: flex;
-}
-.nav-list{
+.login-page-nav-list{
     display: flex;
     list-style: none;
 }
-.nav-item{
-
-}
-.item-content{
+.login-page-item-content{
     height: 100%;
     width: 80px;
     color: white;
     text-align: center;
 }
-.item-content:hover{
+.login-page-item-content:hover{
     background-color: lightskyblue;
     cursor: pointer;
 }
-.content{
+.login-page-content{
     height: 83%;
 }
-.slogan-row{
+.login-page-slogan-row{
     height: 100%;
 
 }
-.slogan{
+.login-page-slogan{
     width: 100%;
     height: 40%;
     text-align: center;
@@ -62,22 +56,22 @@
     color: white;
     text-shadow: 0 1px 7px grey;
 }
-.second{
+.login-page-second{
     text-indent: 65px;
 }
-.content-row{
+.login-page-content-row{
     height: 100%;
 }
-.login-box{
+.login-page-login-box{
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.footer{
+.login-page-footer{
     text-align: center;
     background-color: white;
 }
-.footer a{
+.login-page-footer a{
     color: grey;
 }
