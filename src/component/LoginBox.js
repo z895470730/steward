@@ -1,10 +1,13 @@
 import React from 'react';
 import store from '../store/index';
 import Register from './Register';
+import {user_info_query,Parse} from '../connection';
 import {
 	Form, Icon, Input, Button, Checkbox, Divider
 } from 'antd';
-import {getHandleRegisterSubmit, getChangeRegisterShow} from '../store/actionCreator';
+import {
+	getHandleRegisterSubmit, getChangeRegisterShow
+} from '../store/actionCreator';
 require('./style/LoginBox.css');
 
 class LoginBox extends React.Component{
@@ -13,6 +16,13 @@ class LoginBox extends React.Component{
 		this.state = store.getState();
 		store.subscribe(()=>{this.setState(store.getState())})
 	}
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		this.props.form.validateFields((err, values) => {
+			console.log(user_info_query.equalTo('UserName',values.userName));
+		});
+	};
 
 	handleRegisterSubmit = (e) => {
 		const action = getHandleRegisterSubmit(e);
@@ -24,7 +34,7 @@ class LoginBox extends React.Component{
 		store.dispatch(action);
 	};
 
-	render() {
+	render(){
 		const { getFieldDecorator } = this.props.form;
 		return (
 			<div className='loginBox'>
@@ -53,7 +63,12 @@ class LoginBox extends React.Component{
 							<Checkbox>记住密码</Checkbox>
 						)}
 						<a className="login-form-forgot" href="">忘记密码？</a>
-						<Button type="primary" htmlType="submit" className="login-form-button">
+						<Button
+							type="primary"
+							htmlType="submit"
+							className="login-form-button"
+							onClick={this.handleSubmit}
+						>
 							登录
 						</Button>
 						<Button

@@ -1,11 +1,14 @@
 import React from 'react';
 import {
-	Modal, Form, Button, Input, Select,
+	Modal, Form, Button, Input, Select, message
 } from "antd";
 import store from "../store";
-import {getChangeRegisterShow, getHandleConfirmBlur} from "../store/actionCreator";
+import {
+	getChangeRegisterShow, getHandleConfirmBlur
+} from "../store/actionCreator";
+import {user_info} from "../connection";
 const { Option } = Select;
-
+let userInfo = new user_info();
 class Register extends React.Component{
 	constructor(props){
 		super(props);
@@ -23,13 +26,25 @@ class Register extends React.Component{
 		store.dispatch(action);
 	};
 	//接收注册输入的表单值
-	handleSubmit = (e) => {
+	handleSubmitRegisterInfo = (e) => {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
-				console.log('接收的表单值: ', values);
+				userInfo.save({
+					UserName:values.email,
+					PassWord: values.password,
+					PhoneNumber: values.phone
+				}).then(function(win) {
+						message.success('注册成功');
+						const action = getChangeRegisterShow();
+						store.dispatch(action);
+					},
+					function(loser) {
+						message.error('该邮箱已注册，注册失败')
+					});
 			}
 		});
+		this.props.form.resetFields();
 	};
 	//重复密码功能校验
 	compareToFirstPassword = (rule, value, callback) => {
@@ -90,7 +105,7 @@ class Register extends React.Component{
 			visible={this.state.register_show}
 			footer={null}
 		>
-			<Form {...formItemLayout} onSubmit={this.handleSubmit}>
+			<Form {...formItemLayout} onSubmit={this.handleSubmitRegisterInfo}>
 				<Form.Item
 					label="邮箱"
 				>

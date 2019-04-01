@@ -1,6 +1,7 @@
 import {
 	CHANGE_COLUMN_PAGE, SUBMIT_REGISTER, CHANGE_REGISTER_SHOW, CONFIRM_BLUR
 } from '../store/actionTypes';
+import {Parse} from '../connection';
 export const getHandleColumnChange = (value) =>({
 	type:CHANGE_COLUMN_PAGE,
 	value:value

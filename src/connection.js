@@ -13,3 +13,7 @@ AV.init({
 // import Promise
 export const Promise = require('bluebird');
 export const Parse = AV;
+
+//用户表
+export const user_info = Parse.Object.extend('UserInfo');
+export const user_info_query = new Parse.Query('UserInfo')
