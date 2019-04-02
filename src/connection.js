@@ -1,6 +1,6 @@
 // 存储服务
-const AV = require('leancloud-storage');
-const { Query, User } = AV;
+export const AV = require('leancloud-storage');
+export const { Query, User } = AV;
 // 初始化
 const APP_ID = 'aU6gYshR8fbTby3UzW2wRTdH-gzGzoHsz';
 const APP_KEY = 'NnRnAxoPhK21p8bfyWJMGgEp';
@@ -12,8 +12,3 @@ AV.init({
 
 // import Promise
 export const Promise = require('bluebird');
-export const Parse = AV;
-
-//用户表
-export const user_info = Parse.Object.extend('UserInfo');
-export const user_info_query = new Parse.Query('UserInfo')

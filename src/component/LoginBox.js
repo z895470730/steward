@@ -1,9 +1,9 @@
 import React from 'react';
 import store from '../store/index';
 import Register from './Register';
-import {user_info_query,Parse} from '../connection';
+import {AV} from '../connection';
 import {
-	Form, Icon, Input, Button, Checkbox, Divider
+	Form, Icon, Input, Button, Checkbox, Divider, message
 } from 'antd';
 import {
 	getHandleRegisterSubmit, getChangeRegisterShow
@@ -20,8 +20,15 @@ class LoginBox extends React.Component{
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			console.log(user_info_query.equalTo('UserName',values.userName));
-		});
+			AV.User.logIn(values.userName, values.password).then(
+			function () {
+				message.success('登陆成功，欢迎使用天天管家',5)
+
+			},
+			function () {
+				message.error('输入用户名或密码不正确，请重新输入',5);
+			});
+		})
 	};
 
 	handleRegisterSubmit = (e) => {

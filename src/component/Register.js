@@ -6,9 +6,8 @@ import store from "../store";
 import {
 	getChangeRegisterShow, getHandleConfirmBlur
 } from "../store/actionCreator";
-import {user_info} from "../connection";
+import {User} from "../connection";
 const { Option } = Select;
-let userInfo = new user_info();
 class Register extends React.Component{
 	constructor(props){
 		super(props);
@@ -30,18 +29,22 @@ class Register extends React.Component{
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
-				userInfo.save({
-					UserName:values.email,
-					PassWord: values.password,
-					PhoneNumber: values.phone
-				}).then(function(win) {
-						message.success('注册成功');
-						const action = getChangeRegisterShow();
-						store.dispatch(action);
-					},
-					function(loser) {
-						message.error('该邮箱已注册，注册失败')
-					});
+				let user = new User();
+				// 设置用户名
+				user.setUsername(values.email);
+				// 设置密码
+				user.setPassword(values.password);
+				// 设置邮箱
+				user.setEmail(values.email);
+				// 设置手机号
+				user.setMobilePhoneNumber(values.phone);
+				user.signUp().then(function () {
+					message.success('注册成功');
+					const action = getChangeRegisterShow();
+					store.dispatch(action);
+				}, function () {
+					message.error('该邮箱或手机号已被注册，注册失败')
+				});
 			}
 		});
 		this.props.form.resetFields();
