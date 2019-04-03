@@ -47,6 +47,7 @@ class Register extends React.Component{
 				});
 			}
 		});
+		//清空注册表单内信息
 		this.props.form.resetFields();
 	};
 	//重复密码功能校验
@@ -58,7 +59,6 @@ class Register extends React.Component{
 			callback();
 		}
 	};
-
 	validateToNextPassword = (rule, value, callback) => {
 		const form = this.props.form;
 		if (value && this.state.confirm_dirty) {

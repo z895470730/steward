@@ -1,7 +1,7 @@
 import {
-	CHANGE_COLUMN_PAGE, SUBMIT_REGISTER, CHANGE_REGISTER_SHOW, CONFIRM_BLUR
+	CHANGE_COLUMN_PAGE, SUBMIT_REGISTER, CHANGE_REGISTER_SHOW, CONFIRM_BLUR,
+	CHANGE_LOGIN_STATE,
 } from '../store/actionTypes';
-import {Parse} from '../connection';
 export const getHandleColumnChange = (value) =>({
 	type:CHANGE_COLUMN_PAGE,
 	value:value
@@ -16,5 +16,9 @@ export const getChangeRegisterShow = (value) =>({
 });
 export const getHandleConfirmBlur = (value) =>({
 	type:CONFIRM_BLUR,
+	value:value
+});
+export const getChangeLoginState = (value) =>({
+	type:CHANGE_LOGIN_STATE,
 	value:value
 });

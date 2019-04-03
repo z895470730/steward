@@ -6,7 +6,7 @@ import {
 	Form, Icon, Input, Button, Checkbox, Divider, message
 } from 'antd';
 import {
-	getHandleRegisterSubmit, getChangeRegisterShow
+	getHandleRegisterSubmit, getChangeRegisterShow, getChangeLoginState
 } from '../store/actionCreator';
 require('./style/LoginBox.css');
 
@@ -20,10 +20,11 @@ class LoginBox extends React.Component{
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			AV.User.logIn(values.userName, values.password).then(
+			AV.User.logIn(values.username, values.password).then(
 			function () {
-				message.success('登陆成功，欢迎使用天天管家',5)
-
+				message.success('登陆成功，欢迎使用天天管家',5);
+				const action = getChangeLoginState(values.username);
+				store.dispatch(action);
 			},
 			function () {
 				message.error('输入用户名或密码不正确，请重新输入',5);
@@ -49,7 +50,7 @@ class LoginBox extends React.Component{
 				<Divider/>
 				<Form onSubmit={this.handleRegisterSubmit} className="login-form">
 					<Form.Item>
-						{getFieldDecorator('userName', {
+						{getFieldDecorator('username', {
 							rules: [{ required: true, message: '请输入您的账户名！' }],
 						})(
 							<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入邮箱或用户名" />

@@ -1,13 +1,15 @@
 const defaultState = {
 	page_key:'1',
 	register_show:false,
-	login_state:false,
+	login_state:true,
 	confirm_dirty: false,
 	auto_complete_result: [],
+	active_user:'895470730@qq.com'
 };
 export default (state = defaultState, action) =>{
 	//reducer可以接收state，但绝不能修改state
-	if( action.type === 'change_column_page'){
+	//首页中不同栏目之间的切换
+	if( action.type === 'change_column_page') {
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.page_key = action.value;
 		return newState;
@@ -20,6 +22,7 @@ export default (state = defaultState, action) =>{
 			}
 		});
 	}
+	//对注册窗口的控制，决定是否打开注册窗口
 	if( action.type === 'change_register_show'){
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.register_show = ! state.register_show;
@@ -29,6 +32,19 @@ export default (state = defaultState, action) =>{
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.confirm_dirty = state.confirm_dirty || !!action.value;
 		return newState;
+	}
+	//改变登陆状态，当登陆完成后保存登陆者的用户名，并进入用户界面
+	if( action.type === 'change_login_state'){
+		const newState = JSON.parse(JSON.stringify(state));
+		newState.login_state = !state.login_state;
+		newState.active_user = action.value;
+		return newState;
+	}
+	//退出登陆状态，置空当前用户
+	if( action.type === 'logged_out_state'){
+		const newState = JSON.parse(JSON.stringify(state));
+		newState.login_state = !state.login_state;
+		newState.active_user = null;
 	}
 	return state;
 }
