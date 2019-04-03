@@ -18,3 +18,8 @@
     height: 100%;
     overflow: scroll;
 }
+.footer{
+    display: flex;
+    height: 10%;
+    justify-content: center;
+}
