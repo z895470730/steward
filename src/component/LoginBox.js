@@ -32,11 +32,13 @@ class LoginBox extends React.Component{
 		})
 	};
 
+	//注册用户信息的提交
 	handleRegisterSubmit = (e) => {
 		const action = getHandleRegisterSubmit(e);
 		store.dispatch(action);
 	};
 
+	//控制显示注册框
 	showRegister = () => {
 		const action = getChangeRegisterShow();
 		store.dispatch(action);

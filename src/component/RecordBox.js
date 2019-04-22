@@ -1,11 +1,13 @@
 import React from 'react';
-import {Modal, Input, Select, Form, Radio, Icon, DatePicker, Button} from "antd";
+import {
+	Modal, Input, Select, Form, Radio, Icon, DatePicker, Button, message
+} from "antd";
 import store from '../store/index';
-import {getChangeLoginState, getChangeRecordBoxShow, getHandleRegisterSubmit} from '../store/actionCreator';
+import {getChangeRecordBoxShow} from '../store/actionCreator';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import {AV} from "../connection";
+import {UserBills} from "../connection";
 moment.locale('zh-cn');
 require('./style/RecordBox.css');
 const InputGroup = Input.Group;
@@ -13,8 +15,9 @@ const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
+let billDate;
 function onChange(date, dateString) {
-	console.log(dateString);
+	billDate = dateString;
 }
 
 class RecordBox extends React.Component{
@@ -37,16 +40,35 @@ class RecordBox extends React.Component{
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			console.log(values)
+			let userBills = new UserBills();
+			//当前用户
+			userBills.set('activeUser',this.state.active_user);
+			//存储花销类别
+			userBills.set('category',values.category);
+			//存储花销名
+			userBills.set('name',values.name);
+			//存储花销金额
+			userBills.set('money',values.money);
+			//存储备注
+			userBills.set('note',values.note);
+			//存储支付方式
+			userBills.set('payWay',values.payWay);
+			//存储时间
+			userBills.set('date',billDate);
+			userBills.save().then(function (todo) {
+				message.success('添加成功');
+				const action = getChangeRecordBoxShow();
+				store.dispatch(action);
+			}, function (error) {
+				console.error(error);
+			});
 		})
-	};
-
-	handleRegisterSubmit = (e) => {
-		console.log(e)
+		//清空注册表单内信息
+		this.props.form.resetFields();
 	};
 
 	render() {
-		const { getFieldDecorator, getFieldValue } = this.props.form;
+		const { getFieldDecorator } = this.props.form;
 		return(
 			<Modal
 				visible={this.state.record_box_show}
@@ -91,11 +113,7 @@ class RecordBox extends React.Component{
 					</Form.Item>
 					<Form.Item>
 						<strong>日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期：</strong>
-						{
-							getFieldDecorator('date',{})(
 								<DatePicker locale={locale} onChange={onChange} />
-							)
-						}
 					</Form.Item>
 					<Form.Item>
 						<strong>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</strong>

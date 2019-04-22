@@ -12,3 +12,5 @@ AV.init({
 
 // import Promise
 export const Promise = require('bluebird');
+
+export const UserBills = AV.Object.extend('UserBills');

@@ -1,11 +1,11 @@
 const defaultState = {
 	page_key:'1',
 	register_show:false,
-	login_state:true,
+	login_state:false,
 	confirm_dirty: false,
 	auto_complete_result: [],
-	active_user:'895470730@qq.com',
-	record_box_show:false
+	active_user:null,
+	record_box_show:false,
 };
 export default (state = defaultState, action) =>{
 	//reducer可以接收state，但绝不能修改state
@@ -51,7 +51,7 @@ export default (state = defaultState, action) =>{
 	//改变记账弹窗状态，唤醒或关闭记账弹窗
 	if( action.type === 'change_record_box_show'){
 		const newState = JSON.parse(JSON.stringify(state));
-		newState.record_box_show = !state.record_box_show
+		newState.record_box_show = !state.record_box_show;
 		return newState
 	}
 	return state;
