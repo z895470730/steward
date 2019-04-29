@@ -1,7 +1,7 @@
 import React from 'react';
 import store from '../store/index';
 import Register from './Register';
-import {AV} from '../connection';
+import {User} from '../connection';
 import {
 	Form, Icon, Input, Button, Checkbox, Divider, message
 } from 'antd';
@@ -20,7 +20,7 @@ class LoginBox extends React.Component{
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
-			AV.User.logIn(values.username, values.password).then(
+			User.logIn(values.username, values.password).then(
 			function () {
 				message.success('登陆成功，欢迎使用天天管家',5);
 				const action = getChangeLoginState(values.username);

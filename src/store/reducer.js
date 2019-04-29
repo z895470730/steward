@@ -1,11 +1,12 @@
 const defaultState = {
 	page_key:'1',
 	register_show:false,
-	login_state:false,
+	login_state:true,
 	confirm_dirty: false,
 	auto_complete_result: [],
-	active_user:null,
+	active_user:'895470730@qq.com',
 	record_box_show:false,
+	column_index_table_data:[],
 };
 export default (state = defaultState, action) =>{
 	//reducer可以接收state，但绝不能修改state
@@ -53,6 +54,12 @@ export default (state = defaultState, action) =>{
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.record_box_show = !state.record_box_show;
 		return newState
+	}
+	//获取并更改首页表格数据
+	if( action.type === 'change_column_index_table_data'){
+		const newState = JSON.parse(JSON.stringify(state));
+		newState.column_index_table_data = action.value;
+		return newState;
 	}
 	return state;
 }
