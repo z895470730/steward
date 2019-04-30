@@ -1,0 +1,9 @@
+.bill{
+    background: white;
+    height: 90%;
+}
+.filtrate-gather{
+    height: 10%;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}

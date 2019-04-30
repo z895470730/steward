@@ -1,9 +1,13 @@
 import React from 'react';
 import RecordBox from './RecordBox'
-import { Row, Col, Table, Divider, Button,Icon } from 'antd';
+import {
+	Row, Col, Table, Divider, Button,Icon,
+	Tabs
+} from 'antd';
 import store from '../store/index';
 import { getChangeRecordBoxShow,changeColumnIdexTableData } from '../store/actionCreator';
 import { Query } from "leancloud-storage";
+import Graph from './Graph';
 require('./style/ColumnIndex.css');
 class ColumnIndex extends React.Component{
 	constructor(props){
@@ -101,7 +105,7 @@ class ColumnIndex extends React.Component{
 				<RecordBox/>
 				<Row className='top'>
 					<Col className='chart' xs={24} sm={24} md={13} lg={13} xl={13}>
-						1
+						<Graph/>
 					</Col>
 					<Col xs={1} sm={1} md={1} lg={1} xl={1}/>
 					<Col className='toDay'xs={24} sm={24} md={10} lg={10} xl={10}>

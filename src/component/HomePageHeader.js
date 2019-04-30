@@ -14,7 +14,7 @@ class HomePageHeader extends React.Component{
 	handleLoggedOut = () =>{
 		const action = getChangeLoginState(null);
 		store.dispatch(action);
-		message.success('用户以退出');
+		message.success('用户已退出');
 	};
 	render() {
 		return (
@@ -43,7 +43,7 @@ class HomePageHeader extends React.Component{
 								src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
 								className='home-page-avatar'
 							/>
-							<p>请登录</p>
+							<p>{this.state.active_user}</p>
 							</div>
 						</Dropdown>
 					</Col>
