@@ -1,0 +1,16 @@
+.loans{
+    background: white;
+    height: 90%;
+    overflow: scroll;
+}
+.loansList{
+    margin-left: 10px;
+}
+.loansOption{
+    width: 300px;
+    border-radius:3px;
+    margin-top: 10px;
+}
+.loansOption:hover{
+    box-shadow: 2px 3px 2px #C7C7C7;
+}

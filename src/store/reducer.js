@@ -7,6 +7,7 @@ const defaultState = {
 	active_user:'895470730@qq.com',
 	record_box_show:false,
 	column_index_table_data:[],
+	loans_result:[]
 };
 export default (state = defaultState, action) =>{
 	//reducer可以接收state，但绝不能修改state
@@ -59,6 +60,12 @@ export default (state = defaultState, action) =>{
 	if( action.type === 'change_column_index_table_data'){
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.column_index_table_data = action.value;
+		return newState;
+	}
+	//获取借贷数据
+	if( action.type === 'get_loans_reuslt'){
+		const newState = JSON.parse(JSON.stringify(state));
+		newState.loans_result = action.value;
 		return newState;
 	}
 	return state;

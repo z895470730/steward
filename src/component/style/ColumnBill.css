@@ -4,6 +4,9 @@
 }
 .filtrate-gather{
     height: 10%;
-    border-bottom: 1px solid lightgray;
     padding: 10px;
+}
+.filter{
+    margin-bottom: 5px;
+    margin-top: 5px;
 }

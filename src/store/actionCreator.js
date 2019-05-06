@@ -1,6 +1,7 @@
 import {
 	CHANGE_COLUMN_PAGE, SUBMIT_REGISTER, CHANGE_REGISTER_SHOW, CONFIRM_BLUR,
-	CHANGE_LOGIN_STATE, CHANGE_RECORD_BOX_SHOW, CHANGE_COLUMN_INDEX_TABLE_DATA
+	CHANGE_LOGIN_STATE, CHANGE_RECORD_BOX_SHOW, CHANGE_COLUMN_INDEX_TABLE_DATA,
+	GET_LOANS_RESULT
 } from '../store/actionTypes';
 export const getHandleColumnChange = (value) =>({
 	type:CHANGE_COLUMN_PAGE,
@@ -28,5 +29,9 @@ export const getChangeRecordBoxShow = (value) =>({
 });
 export const changeColumnIdexTableData = (value) =>({
 	type:CHANGE_COLUMN_INDEX_TABLE_DATA,
+	value:value
+});
+export const getLoansResult = (value) =>({
+	type:GET_LOANS_RESULT,
 	value:value
 });
