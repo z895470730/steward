@@ -52,9 +52,9 @@ class HomePage extends React.Component{
 				<Footer className='footer'>
 					©2019 Created by zhang
 					<Divider type="vertical" />
-					<a href="#">服务协议</a>
-					<Divider type="vertical" />
-					<a href="#">版本更新</a>
+					<p>服务协议</p>
+					<Divider type="vertical"/>
+					<p>版本更新</p>
 				</Footer>
 			</Layout>
 		)

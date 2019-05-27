@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Layout, Avatar,  Dropdown, Menu, Icon, message} from "antd";
 import store from '../store/index';
 import {getChangeLoginState} from '../store/actionCreator';
+import {getHandleColumnChange} from '../store/actionCreator';
 require('./style/HomePageHeader.css');
 const { Header } = Layout;
 class HomePageHeader extends React.Component{
@@ -10,7 +11,12 @@ class HomePageHeader extends React.Component{
 		this.state = store.getState();
 		store.subscribe(()=>{this.setState(store.getState())})
 	}
-
+	//跳转到用户个人中心页面
+	handleColumnChange = () =>{
+		const action = getHandleColumnChange('7');
+		store.dispatch(action);
+	};
+	//登出
 	handleLoggedOut = () =>{
 		const action = getChangeLoginState(null);
 		store.dispatch(action);
@@ -24,7 +30,7 @@ class HomePageHeader extends React.Component{
 					</Col>
 					<Col className='home-page-right' xs={10} sm={12} md={12} lg={12} xl={12}>
 						<Dropdown overlay={<Menu>
-							<Menu.Item>
+							<Menu.Item onClick={this.handleColumnChange}>
 								<Icon type="user" />
 								<span>个人中心</span>
 							</Menu.Item>

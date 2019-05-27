@@ -3,11 +3,12 @@ import {
 	Modal, Input, Select, Form, Radio, Icon, DatePicker, Button, message
 } from "antd";
 import store from '../store/index';
-import {getChangeRecordBoxShow} from '../store/actionCreator';
+import {changeColumnIdexTableData, getChangeRecordBoxShow} from '../store/actionCreator';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import {UserBills} from "../connection";
+import {Query} from "leancloud-storage";
 moment.locale('zh-cn');
 require('./style/RecordBox.css');
 const InputGroup = Input.Group;
@@ -27,15 +28,12 @@ class RecordBox extends React.Component{
 		store.subscribe(()=>{this.setState(store.getState())})
 	}
 
-	componentDidMount() {
-		// To disabled submit button at the beginning.
-		this.props.form.validateFields();
-	}
-
 	handleCancel = () =>{
 		const action = getChangeRecordBoxShow();
 		store.dispatch(action);
 	};
+
+
 
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -59,9 +57,29 @@ class RecordBox extends React.Component{
 				message.success('添加成功');
 				const action = getChangeRecordBoxShow();
 				store.dispatch(action);
+				getTableData()
 			}, function (error) {
 				console.error(error);
 			});
+
+			function getTableData(){
+				let query = new Query('UserBills');
+				query.equalTo('activeUser','895470730@qq.com');
+				query.find().then(function (result) {
+					let n = 0;
+					let newData = [];
+					for(let i = result.length - 1; i > 0; i --){
+						newData[n] = {};
+						newData[n] = result[i]._serverData;
+						newData[n].key = n;
+						n++;
+					}
+					const action = changeColumnIdexTableData(newData);
+					store.dispatch(action);
+				}, function (error) {
+					console.log('请求首页表格数据时出错了',error)
+				});
+			};
 		})
 		//清空注册表单内信息
 		this.props.form.resetFields();
@@ -97,10 +115,7 @@ class RecordBox extends React.Component{
 									</Select>
 								)
 							}
-							{
-								getFieldDecorator('name',{})
-								(<Input style={{ width: '65%' }} placeholder="请输入花销名" />)
-							}
+							{ getFieldDecorator('name',{})(<Input style={{ width: '65%' }} placeholder="请输入花销名" />) }
 						</InputGroup>
 				  </Form.Item>
 					<Form.Item>

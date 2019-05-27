@@ -37,9 +37,10 @@ const LoginPageUI = () =>{
 			<Footer className='login-page-footer'>
 				©2019 Created by zhang
 				<Divider type="vertical" />
-				<a href="#">服务协议</a>
+				<span>服务协议</span>
 				<Divider type="vertical" />
-				<a href="#">版本更新</a></Footer>
+				<span>版本更新</span>
+			</Footer>
 		</div>
 	)
 };

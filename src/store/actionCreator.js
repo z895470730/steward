@@ -3,6 +3,8 @@ import {
 	CHANGE_LOGIN_STATE, CHANGE_RECORD_BOX_SHOW, CHANGE_COLUMN_INDEX_TABLE_DATA,
 	GET_LOANS_RESULT
 } from '../store/actionTypes';
+import { Query } from "leancloud-storage";
+import store from "./index";
 export const getHandleColumnChange = (value) =>({
 	type:CHANGE_COLUMN_PAGE,
 	value:value
@@ -35,3 +37,12 @@ export const getLoansResult = (value) =>({
 	type:GET_LOANS_RESULT,
 	value:value
 });
+//服务器请求借贷数据
+export const getLoansFromServer = () =>{
+	let query = new Query('Loans');
+	query.equalTo('username','895470730@qq.com');
+	query.find().then((result)=>{
+		const action = getLoansResult(result);
+		store.dispatch(action);
+	},(error)=>{console.log(error)});
+};

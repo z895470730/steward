@@ -1,14 +1,14 @@
 import React from 'react';
 import RecordBox from './RecordBox'
 import {
-	Row, Col, Table, Divider, Button,Icon,
-	Tabs
+	Row, Col, Table, Divider, Button,Icon
 } from 'antd';
 import store from '../store/index';
 import { getChangeRecordBoxShow,changeColumnIdexTableData } from '../store/actionCreator';
 import { Query } from "leancloud-storage";
 import Graph from './Graph';
 require('./style/ColumnIndex.css');
+let getTable = null
 class ColumnIndex extends React.Component{
 	constructor(props){
 		super(props);
@@ -17,7 +17,12 @@ class ColumnIndex extends React.Component{
 	}
 
 	componentWillMount() {
-		this.getTableData();
+		 getTable = this.getTableData;
+		 getTable();
+	};
+
+	componentWillUnmount(){
+		getTable = null;
 	};
 
 	getTableData = () =>{
@@ -32,7 +37,6 @@ class ColumnIndex extends React.Component{
 				newData[n].key = n;
 				n++;
 			}
-			console.log(newData)
 			const action = changeColumnIdexTableData(newData);
 			store.dispatch(action);
 		}, function (error) {
@@ -53,49 +57,32 @@ class ColumnIndex extends React.Component{
 			fixed:'left',
 			key: 'date',
 		},{
-			title: '类别',
-			dataIndex: 'category',
-			align:'center',
-			key: 'category',
-			width:'150px'
-		},{
 			title:'名称',
 			dataIndex:'name',
 			align:'center',
 			key:'name',
-			width:'150px'
+			width:'100px'
 		},{
 			title: '金额',
 			dataIndex: 'money',
 			align:'center',
 			key: 'money',
-			width:'150px'
+			width:'100px'
 		},{
-			title: '支付方式',
-			key: 'payWay',
-			dataIndex: 'payWay',
-			align:'center',
-			width:'150px',
-			render: payWay =>(
-				<span>
-					<Icon type={payWay}/>
-				</span>
-			)
-		}, {
 			title: '备注 ',
 			dataIndex: 'note',
 			key: 'note',
-			width:'300px'
+			width:'150px'
 		}, 	{
 			title: '操作',
 			key: 'action',
-			width:'180px',
+			width:'150px',
 			align:'center',
 			render: (text, record) => (
 				<span>
-					<a>修改</a>
+					<span>修改</span>
 					<Divider type="vertical" />
-					<a>删除</a>
+					<span>删除</span>
     		</span>),
 		},];
 
@@ -104,27 +91,29 @@ class ColumnIndex extends React.Component{
 			<div className='index'>
 				<RecordBox/>
 				<Row className='top'>
-					<Col className='chart' xs={24} sm={24} md={13} lg={13} xl={13}>
-						<Graph/>
+					<Col className='index-left' xs={11} sm={11} md={11} lg={11} xl={11}>
+						<Row className='chart'>
+							<Graph className='graph'/>
+						</Row>
+						<Row className='toDay'>
+							<Button
+								type="primary"
+								icon="plus"
+								onClick={this.handleRouseRecordBox}
+							>记一笔帐</Button>
+						</Row>
 					</Col>
-					<Col xs={1} sm={1} md={1} lg={1} xl={1}/>
-					<Col className='toDay'xs={24} sm={24} md={10} lg={10} xl={10}>
-						<Button
-							type="primary"
-							icon="plus"
-							onClick={this.handleRouseRecordBox}
-						>记一笔帐</Button>
+					<Col className='index-right' xs={12} sm={12} md={12} lg={12} xl={12}>
+						<Table
+							className='index-table'
+							columns={columns}
+							dataSource={data}
+							pagination={{pageSize:8,position:'bottom'}}
+							scroll={{x:620}}
+						/>
 					</Col>
 				</Row>
-				<p className='table-title'>近日消费</p>
-				<Row className='bottom'>
-					<Table
-						columns={columns}
-						dataSource={data}
-						pagination={{pageSize:3,position:'bottom'}}
-						scroll={{x:1000}}
-					/>
-				</Row>
+
 			</div>
 		)
 	}

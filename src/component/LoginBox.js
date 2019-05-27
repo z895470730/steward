@@ -72,7 +72,7 @@ class LoginBox extends React.Component{
 						})(
 							<Checkbox>记住密码</Checkbox>
 						)}
-						<a className="login-form-forgot" href="">忘记密码？</a>
+						<span className="login-form-forgot">忘记密码？</span>
 						<Button
 							type="primary"
 							htmlType="submit"

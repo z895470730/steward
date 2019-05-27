@@ -63,9 +63,10 @@ export default (state = defaultState, action) =>{
 		return newState;
 	}
 	//获取借贷数据
-	if( action.type === 'get_loans_reuslt'){
+	if( action.type === 'get_loans_result'){
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.loans_result = action.value;
+		console.log(newState);
 		return newState;
 	}
 	return state;

@@ -2,17 +2,21 @@ import React from 'react';
 import {Icon, Menu, Layout} from "antd";
 import store from '../store/index';
 import {getHandleColumnChange} from '../store/actionCreator';
-import { Promise, Parse } from '../connection';
 require('./style/LeftMenu.css');
 const { Sider } = Layout;
 class LeftMenu extends React.Component{
 	constructor(props){
 		super(props);
+		this.state = store.getState();
+		store.subscribe(()=>{this.setState(store.getState())});
 		this.handleColumnChange = this.handleColumnChange.bind(this);
 	}
 	handleColumnChange = (key) =>{
-		const action = getHandleColumnChange(key);
-		store.dispatch(action);
+		console.log(key,this.state.page_key)
+		if(this.state.page_key !== key){
+			const action = getHandleColumnChange(key);
+			store.dispatch(action);
+		}
 	};
 	render() {
 		return (

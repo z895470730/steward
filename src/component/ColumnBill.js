@@ -63,9 +63,9 @@ class ColumnBill extends React.Component{
 			align:'center',
 			render: (text, record) => (
 				<span>
-					<a>修改</a>
+					<span>修改</span>
 					<Divider type="vertical" />
-					<a>删除</a>
+					<span>删除</span>
     		</span>),
 		},];
 
