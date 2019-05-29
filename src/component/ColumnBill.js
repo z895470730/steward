@@ -8,11 +8,12 @@ class ColumnBill extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = store.getState();
-		store.subscribe(()=>{this.setState(store.getState())});
+		this.unsubscribe = store.subscribe(()=>{this.setState(store.getState())});
 	}
 
-	onChange = (date, dateString) =>{
-		console.log(date, dateString);
+	componentWillUnmount() {
+		this.unsubscribe();
+		this.setState(null)
 	}
 
 	render() {
@@ -124,7 +125,7 @@ class ColumnBill extends React.Component{
 				<Table
 					columns={columns}
 					dataSource={data}
-					pagination={{pageSize:15,position:'bottom'}}
+					pagination={{pageSize:6,position:'bottom'}}
 					scroll={{x:1000}}
 				/>
 			</div>

@@ -50,3 +50,8 @@
 .index-table{
     height: 100%;
 }
+@media screen and (max-width:750px) {
+    .index-right{
+        left: 0;
+    }
+}

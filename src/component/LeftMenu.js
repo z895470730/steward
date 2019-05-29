@@ -12,7 +12,6 @@ class LeftMenu extends React.Component{
 		this.handleColumnChange = this.handleColumnChange.bind(this);
 	}
 	handleColumnChange = (key) =>{
-		console.log(key,this.state.page_key)
 		if(this.state.page_key !== key){
 			const action = getHandleColumnChange(key);
 			store.dispatch(action);

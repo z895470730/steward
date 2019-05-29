@@ -83,7 +83,7 @@ class Graph extends React.Component{
 										html="<div style=&quot;color:#8c8c8c;font-size:1.16em;text-align: center;width: 10em;&quot;>
 														花销
 														<br>
-														<span style=&quot;color:#262626;font-size:2.5em&quot;>
+														<span style=&quot;color:#262626;font-size:1.0em&quot;>
 															200
 														</span>
 														元

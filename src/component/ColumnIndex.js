@@ -1,29 +1,31 @@
 import React from 'react';
 import RecordBox from './RecordBox'
 import {
-	Row, Col, Table, Divider, Button,Icon
+	Row, Col, Table, Divider, Button
 } from 'antd';
 import store from '../store/index';
 import { getChangeRecordBoxShow,changeColumnIdexTableData } from '../store/actionCreator';
 import { Query } from "leancloud-storage";
 import Graph from './Graph';
 require('./style/ColumnIndex.css');
-let getTable = null
 class ColumnIndex extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = store.getState();
-		store.subscribe(()=>{this.setState(store.getState())});
+		this.unsubscribe = store.subscribe(()=>{this.setState(store.getState())});
 	}
 
-	componentWillMount() {
-		 getTable = this.getTableData;
-		 getTable();
+	componentDidMount() {
+		this.getTableData();
 	};
 
 	componentWillUnmount(){
-		getTable = null;
+		this.unsubscribe();
 	};
+
+	shouldComponentUpdate(nextProps, nextState, nextContext) {
+		return this.state.column_index_table_data !== nextState.column_index_table_data;
+	}
 
 	getTableData = () =>{
 		let query = new Query('UserBills');
@@ -91,7 +93,7 @@ class ColumnIndex extends React.Component{
 			<div className='index'>
 				<RecordBox/>
 				<Row className='top'>
-					<Col className='index-left' xs={11} sm={11} md={11} lg={11} xl={11}>
+					<Col className='index-left' xs={24} sm={24} md={24} lg={11} xl={11}>
 						<Row className='chart'>
 							<Graph className='graph'/>
 						</Row>
@@ -103,7 +105,7 @@ class ColumnIndex extends React.Component{
 							>记一笔帐</Button>
 						</Row>
 					</Col>
-					<Col className='index-right' xs={12} sm={12} md={12} lg={12} xl={12}>
+					<Col className='index-right' xs={24} sm={24} md={24} lg={12} xl={12}>
 						<Table
 							className='index-table'
 							columns={columns}

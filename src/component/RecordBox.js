@@ -25,7 +25,7 @@ class RecordBox extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = store.getState();
-		store.subscribe(()=>{this.setState(store.getState())})
+		this.unsubscribe = store.subscribe(()=>{this.setState(store.getState())})
 	}
 
 	handleCancel = () =>{
@@ -33,7 +33,9 @@ class RecordBox extends React.Component{
 		store.dispatch(action);
 	};
 
-
+	componentWillUnmount() {
+		this.unsubscribe();
+	}
 
 	handleSubmit = (e) => {
 		e.preventDefault();

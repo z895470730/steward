@@ -66,7 +66,6 @@ export default (state = defaultState, action) =>{
 	if( action.type === 'get_loans_result'){
 		const newState = JSON.parse(JSON.stringify(state));
 		newState.loans_result = action.value;
-		console.log(newState);
 		return newState;
 	}
 	return state;
