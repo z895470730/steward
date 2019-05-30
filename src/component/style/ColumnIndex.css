@@ -50,6 +50,13 @@
 .index-table{
     height: 100%;
 }
+.table-action-option{
+    color: #1296DB;
+}
+.table-action-option:hover{
+    cursor: pointer;
+    color: #1890FF;
+}
 @media screen and (max-width:750px) {
     .index-right{
         left: 0;

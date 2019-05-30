@@ -1,7 +1,7 @@
 import React from 'react';
 import RecordBox from './RecordBox'
 import {
-	Row, Col, Table, Divider, Button
+	Row, Col, Table, Divider, Button, Popconfirm, Icon
 } from 'antd';
 import store from '../store/index';
 import { getChangeRecordBoxShow,changeColumnIdexTableData } from '../store/actionCreator';
@@ -82,9 +82,20 @@ class ColumnIndex extends React.Component{
 			align:'center',
 			render: (text, record) => (
 				<span>
-					<span>修改</span>
+						<span className='table-action-option'>
+							修改
+						</span>
 					<Divider type="vertical" />
-					<span>删除</span>
+					<Popconfirm
+						title="是否删除"
+						icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
+						okText='是'
+						cancelText='否'
+					>
+						<span className='table-action-option'>
+							删除
+						</span>
+					</Popconfirm>
     		</span>),
 		},];
 
@@ -95,7 +106,10 @@ class ColumnIndex extends React.Component{
 				<Row className='top'>
 					<Col className='index-left' xs={24} sm={24} md={24} lg={11} xl={11}>
 						<Row className='chart'>
-							<Graph className='graph'/>
+							<Graph
+								className='graph'
+								data = {this.state.column_index_table_data}
+							/>
 						</Row>
 						<Row className='toDay'>
 							<Button

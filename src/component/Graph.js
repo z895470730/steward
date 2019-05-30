@@ -1,18 +1,55 @@
 import React from 'react';
 import {Tabs} from "antd";
 import {
-	Chart,
-	Geom,
-	Axis,
-	Tooltip,
-	Coord,
-	Label,
-	Legend,
-	Guide,
+	Chart, Geom, Axis, Tooltip, Coord, Label, Legend, Guide,
 } from "bizcharts";
 import DataSet from "@antv/data-set";
 require('./style/Graph.css');
 class Graph extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			graph_data:{},
+			gross:0
+		}
+	}
+
+	componentWillReceiveProps(nextProps, nextContext) {
+		let data = {
+			clothes: 0,
+			food: 0,
+			trip: 0,
+			other: 0,
+			livingPayment: 0,
+			stationeryAndSporting: 0
+		};
+		nextProps.data.map(function(index){
+			switch (index.category) {
+				case 'clothes':
+					data.clothes = data.clothes + parseInt(index.money);
+					break;
+				case 'food':
+					data.food = data.food + parseInt(index.money);
+					break;
+				case 'trip':
+					data.trip = data.trip + parseInt(index.money);
+					break;
+				case 'other':
+					data.other = data.other + parseInt(index.money);
+					break;
+				case 'livingPayment':
+					data.livingPayment = data.livingPayment + parseInt(index.money);
+					break;
+				case 'stationeryAndSporting':
+					data.stationeryAndSporting = data.stationeryAndSporting + parseInt(index.money);
+					break;
+				default:
+					return [];
+			}
+			return data;
+		});
+		this.setState({graph_data:data,gross:data.clothes + data.food + data.trip + data.other + data.livingPayment + data.stationeryAndSporting});
+	}
 
 	render() {
 		const TabPane = Tabs.TabPane;
@@ -20,24 +57,28 @@ class Graph extends React.Component{
 		const { Html } = Guide;
 		const data = [
 			{
-				item: "事例一",
-				count: 40
+				item: "服饰",
+				count: this.state.graph_data.clothes
 			},
 			{
-				item: "事例二",
-				count: 21
+				item: "饮食",
+				count: this.state.graph_data.food
 			},
 			{
-				item: "事例三",
-				count: 17
+				item: "交通出行",
+				count: this.state.graph_data.trip
 			},
 			{
-				item: "事例四",
-				count: 13
+				item: "生活缴费",
+				count: this.state.graph_data.livingPayment
 			},
 			{
-				item: "事例五",
-				count: 9
+				item: "文教体育",
+				count: this.state.graph_data.stationeryAndSporting
+			},
+			{
+				item: "其他",
+				count: this.state.graph_data.other
 			}
 		];
 		const dv = new DataView();
@@ -50,7 +91,7 @@ class Graph extends React.Component{
 		const cols = {
 			percent: {
 				formatter: val => {
-					val = val * 100 + "%";
+					val = (val * 100).toFixed(2) + "%";
 					return val;
 				}
 			}
@@ -80,14 +121,14 @@ class Graph extends React.Component{
 								<Guide>
 									<Html
 										position={["50%", "50%"]}
-										html="<div style=&quot;color:#8c8c8c;font-size:1.16em;text-align: center;width: 10em;&quot;>
+										html={`<div style="color:#8c8c8c;font-size:1.16em;text-align: center;width: 10em;">
 														花销
 														<br>
-														<span style=&quot;color:#262626;font-size:1.0em&quot;>
-															200
+														<span style="color:#262626;font-size:1.0em">
+															${this.state.gross}
 														</span>
 														元
-													</div>"
+													</div>`}
 										alignX="middle"
 										alignY="middle"
 									/>
@@ -99,7 +140,7 @@ class Graph extends React.Component{
 									tooltip={[
 										"item*percent",
 										(item, percent) => {
-											percent = percent * 100 + "%";
+											percent = (percent * 100).toFixed(2) + "%";
 											return {
 												name: item,
 												value: percent

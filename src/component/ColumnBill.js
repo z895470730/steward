@@ -28,7 +28,25 @@ class ColumnBill extends React.Component{
 			dataIndex: 'category',
 			align:'center',
 			key: 'category',
-			width:'150px'
+			width:'150px',
+			render: (index) => {
+				switch (index) {
+					case 'clothes':
+						return '服饰';
+					case 'food':
+						return '饮食';
+					case 'trip':
+						return '交通出行';
+					case 'other':
+						return '其他';
+					case 'livingPayment':
+						return '生活缴费';
+					case 'stationeryAndSporting':
+						return '文体教育';
+					default:
+						return '暂无类别';
+				}
+			}
 		},{
 			title:'名称',
 			dataIndex:'name',
