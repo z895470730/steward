@@ -4,47 +4,20 @@ import {
 	Row, Col, Table, Divider, Button, Popconfirm, Icon
 } from 'antd';
 import store from '../store/index';
-import { getChangeRecordBoxShow,changeColumnIdexTableData } from '../store/actionCreator';
-import { Query } from "leancloud-storage";
+import { getChangeRecordBoxShow } from '../store/actionCreator';
+import { getTableData } from "../services/LeanCloud/getColumnIndex";
 import Graph from './Graph';
 require('./style/ColumnIndex.css');
 class ColumnIndex extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = store.getState();
-		this.unsubscribe = store.subscribe(()=>{this.setState(store.getState())});
-	}
-
+	state={};
+	//服务器表格数据请求
 	componentDidMount() {
-		this.getTableData();
-	};
-
-	componentWillUnmount(){
-		this.unsubscribe();
+		getTableData('week');
 	};
 
 	shouldComponentUpdate(nextProps, nextState, nextContext) {
-		return this.state.column_index_table_data !== nextState.column_index_table_data;
+		return store.getState().column_index_table_data !== nextState.column_index_table_data;
 	}
-
-	getTableData = () =>{
-		let query = new Query('UserBills');
-		query.equalTo('activeUser','895470730@qq.com');
-		query.find().then(function (result) {
-			let n = 0;
-			let newData = [];
-			for(let i = result.length - 1; i > 0; i --){
-				newData[n] = {};
-				newData[n] = result[i]._serverData;
-				newData[n].key = n;
-				n++;
-			}
-			const action = changeColumnIdexTableData(newData);
-			store.dispatch(action);
-		}, function (error) {
-			console.log('请求首页表格数据时出错了',error)
-		});
-	};
 
 	handleRouseRecordBox = () =>{
 		const action = getChangeRecordBoxShow();
@@ -52,7 +25,8 @@ class ColumnIndex extends React.Component{
 	};
 
 	render() {
-		const columns = [{
+		const columns = [
+		{
 			title: '时间',
 			dataIndex: 'date',
 			width:'120px',
@@ -80,7 +54,7 @@ class ColumnIndex extends React.Component{
 			key: 'action',
 			width:'150px',
 			align:'center',
-			render: (text, record) => (
+			render: () => (
 				<span>
 						<span className='table-action-option'>
 							修改
@@ -98,8 +72,7 @@ class ColumnIndex extends React.Component{
 					</Popconfirm>
     		</span>),
 		},];
-
-		let data = this.state.column_index_table_data;
+		const data = store.getState().column_index_table_data;
 		return(
 			<div className='index'>
 				<RecordBox/>
@@ -108,7 +81,7 @@ class ColumnIndex extends React.Component{
 						<Row className='chart'>
 							<Graph
 								className='graph'
-								data = {this.state.column_index_table_data}
+								data = {data}
 							/>
 						</Row>
 						<Row className='toDay'>
@@ -129,7 +102,6 @@ class ColumnIndex extends React.Component{
 						/>
 					</Col>
 				</Row>
-
 			</div>
 		)
 	}
