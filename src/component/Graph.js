@@ -1,17 +1,11 @@
 import React from 'react';
 import {Tabs} from "antd";
 import GraphPane from './GraphPane';
+import store from '../store';
+import {transformMonth,transformYear} from '../services/LeanCloud/getColumnIndex';
 require('./style/Graph.css');
 class Graph extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			graph_data:{},
-			gross:0,
-			month:{},
-			year:{}
-		}
-	}
+	state = {graph_data:{}};
 
 	componentWillReceiveProps(nextProps, nextContext) {
 		let data = {
@@ -20,7 +14,8 @@ class Graph extends React.Component{
 			trip: 0,
 			other: 0,
 			livingPayment: 0,
-			stationeryAndSporting: 0
+			stationeryAndSporting: 0,
+			sum: 0
 		};
 		nextProps.data.map(function(index){
 			switch (index.category) {
@@ -47,11 +42,11 @@ class Graph extends React.Component{
 			}
 			return data;
 		});
-		this.setState({graph_data:data,gross:data.clothes + data.food + data.trip + data.other + data.livingPayment + data.stationeryAndSporting});
+		data.sum = data.clothes + data.food + data.trip + data.other + data.livingPayment + data.stationeryAndSporting;
+		this.setState({graph_data:data});
 	};
 
 	render() {
-
 		const TabPane = Tabs.TabPane;
 		return(
 			<div className='graph'>
@@ -64,14 +59,12 @@ class Graph extends React.Component{
 						</TabPane>
 						<TabPane tab="本月统计" key="2">
 							<GraphPane
-								content = {this.state.graph_data}
-								gross = {this.state.gross}
+								content = {transformMonth(store.getState().column_index_table_data)}
 							/>
 						</TabPane>
 						<TabPane tab="年度统计" key="3">
 							<GraphPane
-								content = {this.state.graph_data}
-								gross = {this.state.gross}
+								content = {transformYear(store.getState().column_index_table_data)}
 							/>
 						</TabPane>
 					</Tabs>

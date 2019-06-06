@@ -9,10 +9,10 @@ import { getTableData } from "../services/LeanCloud/getColumnIndex";
 import Graph from './Graph';
 require('./style/ColumnIndex.css');
 class ColumnIndex extends React.Component{
-	state={};
+	state={week:{}};
 	//服务器表格数据请求
 	componentDidMount() {
-		getTableData('week');
+		getTableData();
 	};
 
 	shouldComponentUpdate(nextProps, nextState, nextContext) {

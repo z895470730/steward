@@ -5,15 +5,9 @@ import {
 import DataSet from "@antv/data-set";
 require('./style/Graph.css');
 class GraphPane extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-
-		}
-	}
+	state ={};
 
 	render(){
-		console.log(this.props.content);
 		const { DataView } = DataSet;
 		const { Html } = Guide;
 		const data = [
@@ -83,7 +77,7 @@ class GraphPane extends React.Component{
 													花销
 													<br>
 													<span style="color:#262626;font-size:1.0em">
-														${this.props.gross}
+														${this.props.content.sum}
 													</span>
 													元
 												</div>`}

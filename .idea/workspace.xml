@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56cd0ad1-4d34-4a5c-9dd1-75be9363d0fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/ColumnIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/ColumnIndex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/Graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/GraphPane.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/GraphPane.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/LeanCloud/getColumnIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/LeanCloud/getColumnIndex.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,12 +23,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/component/GraphPane.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="139">
-                  <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+                <state relative-caret-position="140">
+                  <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#div#0;n#!!top" />
                     <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
@@ -37,15 +37,12 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/component/ColumnIndex.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="559">
-                  <caret line="82" column="33" lean-forward="true" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
+                <state relative-caret-position="220">
+                  <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                     <element signature="n#!!block;n#shouldComponentUpdate#0;n#ColumnIndex#0" />
-                    <element signature="e#669#742#0" />
-                    <element signature="e#775#1609#0" />
-                    <element signature="e#871#963#0" />
-                    <element signature="e#1062#1139#0" />
+                    <element signature="e#781#1618#0" />
                   </folding>
                 </state>
               </provider>
@@ -54,8 +51,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/component/Graph.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+                <state relative-caret-position="28">
+                  <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -70,11 +67,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/services/LeanCloud/getColumnIndex.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-301">
-                  <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+                <state relative-caret-position="79">
+                  <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
-                    <element signature="e#1699#1706#0" />
                   </folding>
                 </state>
               </provider>
@@ -83,7 +79,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/store/actionCreator.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="599">
+                <state relative-caret-position="820">
                   <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
                   <folding>
                     <element signature="e#0#208#0" expanded="true" />
@@ -130,11 +126,15 @@
       <find>xs={2} sm={4} md={6} lg={8} xl={8}</find>
       <find>xs={2} sm={4} md={6} lg={8} xl={6}</find>
       <find>props</find>
+      <find>gross</find>
+      <find>content</find>
+      <find>this.props.content</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;li className='nav-item'&gt;&lt;div className='item-content'&gt;1&lt;/div&gt;&lt;/li&gt;</replace>
       <replace>xs={2} sm={4} md={6} lg={8} xl={6}</replace>
       <replace>xs={24} sm={24} md={12} lg={8} xl={6}</replace>
+      <replace>this.props.content.data</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -191,8 +191,8 @@
         <option value="$PROJECT_DIR$/src/component/ColumnBill.js" />
         <option value="$PROJECT_DIR$/src/component/style/ColumnIndex.css" />
         <option value="$PROJECT_DIR$/src/component/GraphPane.js" />
-        <option value="$PROJECT_DIR$/src/services/LeanCloud/getColumnIndex.js" />
         <option value="$PROJECT_DIR$/src/component/ColumnIndex.js" />
+        <option value="$PROJECT_DIR$/src/services/LeanCloud/getColumnIndex.js" />
         <option value="$PROJECT_DIR$/src/component/Graph.js" />
       </list>
     </option>
@@ -208,7 +208,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,18 +224,13 @@
               <item name="steward" type="b2602c69:ProjectViewProjectNode" />
               <item name="steward" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="steward" type="b2602c69:ProjectViewProjectNode" />
-              <item name="steward" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -324,11 +318,12 @@
       <workItem from="1559270579846" duration="2314000" />
       <workItem from="1559486152745" duration="3401000" />
       <workItem from="1559739768470" duration="9076000" />
+      <workItem from="1559787403099" duration="5456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252077000" />
+    <option name="totallyTimeSpent" value="257533000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,6 +687,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actionCreator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actionTypes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -706,24 +711,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actionCreator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="47" column="2" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/GraphPane.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state relative-caret-position="140">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#!!top" />
             <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -731,34 +725,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/ColumnIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="82" column="33" lean-forward="true" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
+        <state relative-caret-position="220">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="n#!!block;n#shouldComponentUpdate#0;n#ColumnIndex#0" />
-            <element signature="e#669#742#0" />
-            <element signature="e#775#1609#0" />
-            <element signature="e#871#963#0" />
-            <element signature="e#1062#1139#0" />
+            <element signature="e#781#1618#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/LeanCloud/getColumnIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-301">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="79">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#1699#1706#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/Graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="28">
+          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
