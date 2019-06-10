@@ -18,6 +18,7 @@ export const getTableData = () =>{
 		for(let i = result.length - 1; i > 0; i --){
 			newData[n] = {};
 			newData[n] = result[i]._serverData;
+			newData[n].id = result[i].id;
 			newData[n].key = 'weekKey' + n;
 			n++;
 		}
@@ -30,7 +31,7 @@ export const getTableData = () =>{
 export const transformMonth = (result) =>{
 	let n = 0;
 	let newData = [];
-	let currentMonth = new Date().getMonth();
+	let currentMonth = new Date().getMonth() + 1;
 	for(let i = result.length - 1; i > 0; i --){
 		if(Number(result[i].date.slice(5,7)) === currentMonth){
 			newData[n] = {};

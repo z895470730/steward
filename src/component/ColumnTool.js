@@ -1,10 +1,18 @@
 import React from 'react';
-
+import {Row,Col} from "antd";
+require('./style/ColumnTool.css');
 class ColumnTool extends React.Component{
-	render() {
+
+	render(){
 		return (
-			<div>
-				工具
+			<div className='tool'>
+				<Row>
+					<Col>
+
+					</Col>
+					<Col>
+					</Col>
+				</Row>
 			</div>
 		);
 	}

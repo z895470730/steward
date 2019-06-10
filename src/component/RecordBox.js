@@ -11,10 +11,6 @@ import {UserBills} from "../connection";
 import {Query} from "leancloud-storage";
 moment.locale('zh-cn');
 require('./style/RecordBox.css');
-const InputGroup = Input.Group;
-const Option = Select.Option;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
 
 let billDate;
 function onChange(date, dateString) {
@@ -81,13 +77,17 @@ class RecordBox extends React.Component{
 				}, function (error) {
 					console.log('请求首页表格数据时出错了',error)
 				});
-			};
-		})
+			}
+		});
 		//清空注册表单内信息
 		this.props.form.resetFields();
 	};
 
 	render() {
+		const InputGroup = Input.Group;
+		const Option = Select.Option;
+		const RadioButton = Radio.Button;
+		const RadioGroup = Radio.Group;
 		const { getFieldDecorator } = this.props.form;
 		return(
 			<Modal

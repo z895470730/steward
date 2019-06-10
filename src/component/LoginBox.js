@@ -21,7 +21,7 @@ class LoginBox extends React.Component{
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			User.logIn(values.username, values.password).then(
-			function () {
+			function (success) {
 				message.success('登陆成功，欢迎使用天天管家',5);
 				const action = getChangeLoginState(values.username);
 				store.dispatch(action);
