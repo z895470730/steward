@@ -24,10 +24,10 @@ class LoansBox extends React.Component {
 		//清空注册表单内信息
 		this.props.form.resetFields();
 	};
-
+	//获取时间
 	getRepaymentDate = (date,dateString) =>{
 		this.setState({repaymentDate:dateString})
-	}
+	};
 
 	render() {
 		const {getFieldDecorator} = this.props.form;

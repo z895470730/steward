@@ -1,4 +1,4 @@
-import {Loans} from "../../connection";
+import {Loans, AVC} from "../../connection";
 
 export const setLoansDate = (values,close) =>{
 	let loans = new Loans();
@@ -18,3 +18,20 @@ export const setLoansDate = (values,close) =>{
 		console.error(error);
 	})
 };
+
+export const editLoansDate = (id,values) =>{
+	let change = AVC.Object.createWithoutData('Loans', id);
+	//出借方
+	change.set('lender',values.lender);
+	//借款人
+	change.set('borrower',values.borrower);
+	//借款金额
+	change.set('borrowingBalance',values.borrowingBalance);
+	//还款日期
+	change.set('repaymentDate',values.repaymentDate);
+	change.save().then(function (todo) {
+		return
+	}, function (error) {
+		console.error(error);
+	})
+}

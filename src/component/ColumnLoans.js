@@ -1,8 +1,9 @@
 import React from 'react';
-import {Card, Icon, Row, Col, Drawer, Form, Input, DatePicker, Button} from 'antd';
+import {Card, Icon, Row, Col, Drawer, Form, Input, DatePicker, Button, message} from 'antd';
 import store from "../store";
 import {Query} from "leancloud-storage";
 import {getLoansResult} from "../store/actionCreator";
+import {editLoansDate} from "../services/LeanCloud/loansDataAction";
 import locale from "antd/lib/date-picker/locale/zh_CN";
 import moment from 'moment';
 require('./style/ColumnLoans.css');
@@ -19,26 +20,39 @@ class ColumnLoans extends React.Component{
 	componentDidMount() {
 		this.getLoansData();
 	}
+	componentWillUnmount() {
+		this.unsubscribe();
+	}
 
 	//唤出修改账单数据的抽屉
 	showDrawer = (value) =>{
-		console.log(value,this.state);
-		this.setState({drawerStatus:!this.state.drawerStatus});
+		this.setState({drawerStatus:!this.state.drawerStatus,current:value});
 	};
-
+	//获取贷款数据
 	getLoansData = () =>{
 		let query = new Query('Loans');
 		query.equalTo('username',store.getState().active_user);
 		query.find().then((result)=>{
 			result = result.map((index)=>{
+				index._serverData.id = index.id;
 				return index._serverData
 			});
 			const action = getLoansResult(result);
 			store.dispatch(action);
 		},(error)=>{console.log(error)});
 	};
-
-	render() {
+	//提交修改
+	handleSubmit = (e) =>{
+		e.preventDefault();
+		console.log(this.state.current)
+		this.props.form.validateFields((err,values) =>{
+			values.repaymentDate = this.state.current.repaymentDate;
+			editLoansDate(this.state.current.id,values)
+		})
+		this.setState({drawerStatus:false});
+		message.success('修改成功');
+	};
+	render(value) {
 		const {getFieldDecorator} = this.props.form;
 		return (
 			<div className='loans'>
@@ -76,7 +90,7 @@ class ColumnLoans extends React.Component{
 							<strong>出借方：</strong>
 							{
 								getFieldDecorator('lender', {
-									defaultValue:this.state.current.lender
+									initialValue:this.state.current.lender
 								})(
 									<Input placeholder="请输入出借方" style={{width: '80%'}}/>
 								)
@@ -86,7 +100,7 @@ class ColumnLoans extends React.Component{
 							<strong>借款人：</strong>
 							{
 								getFieldDecorator('borrower', {
-									defaultValue: this.state.current.borrower
+									initialValue: this.state.current.borrower
 								})(
 									<Input placeholder="请输入借款人" style={{width: '80%'}}/>
 								)
@@ -96,7 +110,7 @@ class ColumnLoans extends React.Component{
 							<strong>借款金额：</strong>
 							{
 								getFieldDecorator('borrowingBalance',{
-									defaultValue:this.state.current.borrowingBalance
+									initialValue:this.state.current.borrowingBalance
 								})(
 									<Input placeholder="请输入花费金额" style={{width:'80%'}}/>
 								)
@@ -107,14 +121,14 @@ class ColumnLoans extends React.Component{
 							<DatePicker
 								locale={locale}
 								onChange={this.getRepaymentDate}
-								value={moment(this.state.current.date,'YYYY-MM-DD')}
+								value={moment(this.state.current.repaymentDate,'YYYY-MM-DD')}
 							/>
 						</Form.Item>
 						<Form.Item>
 							<strong>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</strong>
 							{
 								getFieldDecorator('note', {
-									defaultValue:this.state.current.note
+									initialValue:this.state.current.note
 								})(
 									<Input style={{width: '80%'}} placeholder="请输入备注信息"/>
 								)

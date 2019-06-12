@@ -1,23 +1,26 @@
 import React from 'react';
 import { Row, Upload, Icon, message } from 'antd';
+import {AVC} from "../connection";
+
 require('./style/ColumnCardBag.css');
 const Dragger = Upload.Dragger;
 const props = {
 	name: 'file',
-	multiple: true,
-	action: '//jsonplaceholder.typicode.com/posts/',
-	onChange(info) {
-		const status = info.file.status;
-		if (status !== 'uploading') {
-			console.log(info.file, info.fileList);
-		}
-		if (status === 'done') {
-			message.success(`${info.file.name} file uploaded successfully.`);
-		} else if (status === 'error') {
-			message.error(`${info.file.name} file upload failed.`);
-		}
+	beforeUpload: () => {
+		return false
 	},
-};
+	onChange(info) {
+		var file = new AVC.File(info.file.name, info.file);
+		file.save().then(function (file) {
+			// 文件保存成功
+			console.log(file.url());
+			message.success(file.name() + '上传成功')
+		}, function (error) {
+			// 异常处理
+			console.error(error);
+		});
+	}
+}
 class ColumnCardBag extends React.Component{
 	render() {
 		return (
