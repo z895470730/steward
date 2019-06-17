@@ -1,10 +1,10 @@
 const defaultState = {
 	page_key:'1',
 	register_show:false,
-	login_state:true,
+	login_state:false,
 	confirm_dirty: false,
 	auto_complete_result: [],
-	active_user:'895470730@qq.com',
+	active_user:null,
 	record_box_show:false,
 	column_index_table_data:[],
 	loans_result:[]

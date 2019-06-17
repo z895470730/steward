@@ -40,7 +40,7 @@ export const getLoansResult = (value) =>({
 //服务器请求借贷数据
 export const getLoansFromServer = () =>{
 	let query = new Query('Loans');
-	query.equalTo('username','895470730@qq.com');
+	query.equalTo('username',store.getState().active_user);
 	query.find().then((result)=>{
 		const action = getLoansResult(result);
 		store.dispatch(action);

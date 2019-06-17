@@ -51,7 +51,7 @@ class Graph extends React.Component{
 		return(
 			<div className='graph'>
 					<Tabs tabPosition={'top'} className='graphList'>
-						<TabPane tab="本周统计" key="1" className='graphWeek'>
+						<TabPane tab="全部花销统计" key="1" className='graphWeek'>
 							<GraphPane
 								content = {this.state.graph_data}
 								gross = {this.state.gross}

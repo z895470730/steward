@@ -1,9 +1,9 @@
 import {Loans, AVC} from "../../connection";
-
+import store from '../../store'
 export const setLoansDate = (values,close) =>{
 	let loans = new Loans();
 	//用于识别借贷信息所属账号
-	loans.set('username','895470730@qq.com');
+	loans.set('username',store.getState().active_user);
 	//出借方
 	loans.set('lender',values.lender);
 	//借款人

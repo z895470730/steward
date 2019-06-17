@@ -4,7 +4,7 @@ import store from "../../store";
 
 export const getTableData = () =>{
 	let query = new Query('UserBills');
-	query.equalTo('activeUser','895470730@qq.com');
+	query.equalTo('activeUser',store.getState().active_user);
 	query.find().then(function (result) {
 		transformWeek(result)
 	}, function (error) {

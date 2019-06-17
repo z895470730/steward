@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Upload, Icon, message } from 'antd';
+import {Row, Upload, Icon, message, Input, Col} from 'antd';
 import {AVC} from "../connection";
 
 require('./style/ColumnCardBag.css');
@@ -33,6 +33,16 @@ class ColumnCardBag extends React.Component{
 						<p className="ant-upload-text">点击或拖动文件到此处上传证件</p>
 						<p className="ant-upload-hint">只接受.jpg,.png格式的图片</p>
 					</Dragger>
+				</Row>
+				<Row>
+					<Col xs={4} sm={4} md={4} lg={4} xl={4}>
+						<img
+							alt="example"
+							src="http://lc-au6gyshr.cn-n1.lcfile.com/93f3283f5d9f388a0a2e.jpg"
+							width={150}
+							style={{margin:10}}
+						/>
+					</Col>
 				</Row>
 			</div>
 		);
